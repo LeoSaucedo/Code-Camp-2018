@@ -1,6 +1,7 @@
 /*
  * A computer player.
  */
+import java.util.ArrayList;
 import java.util.Random;
 public class ComputerPlayer {
 	private int hp;
@@ -31,6 +32,18 @@ public class ComputerPlayer {
 		isDead = dead;
 	}
 	
+	/**
+	 * Sleeps for a specified amount of time.
+	 * @param Seconds to sleep.
+	 */
+	public void sleep(int seconds) {
+		try {
+			Thread.sleep(seconds*1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	//Accessor methods
 	
 	/**
@@ -56,6 +69,23 @@ public class ComputerPlayer {
 	 */
 	public boolean getDead() {
 		return isDead;
+	}
+	
+	/**
+	 * Returns the name of the CPU.
+	 * @return the name of the CPU.
+	 */
+	public String getName() {
+		//Create and fill an ArrayList of possible names.
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Jarvis");
+		names.add("Eve");
+		names.add("Turing");
+		
+		//Randomly select a name from the list and assign it to the bot.
+		int nameIndex = rand.nextInt(names.size() - 1);
+		String name = names.get(nameIndex);
+		return name;
 	}
 	
 	/*

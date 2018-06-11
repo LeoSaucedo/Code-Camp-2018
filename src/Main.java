@@ -28,12 +28,12 @@ public class Main {
 		while(!cpu.getDead() && !user.getDead()) {//While both players are alive
 			int userStrength = user.getAttackStrength();//Stores user's current attack strength.
 			cpu.setHP(cpu.getHP() - userStrength);//Reduces the user's HP by the attack strength.
-			System.out.println(user.getName() + " attacks CPU! "+userStrength+" damage!");//Tells the user what happened.
+			System.out.println(user.getName() + " attacks "+cpu.getName()+"! "+userStrength+" damage!");//Tells the user what happened.
 			
 			
 			int cpuStrength = cpu.getAttackStrength();
 			user.setHP(user.getHP() - cpuStrength);
-			System.out.println("CPU attacks! "+cpuStrength+" damage!");
+			System.out.println(cpu.getName()+" attacks! "+cpuStrength+" damage!");
 			
 			//Verifies whether the players are dead.
 			if(user.getHP() <= 0) {
@@ -46,22 +46,15 @@ public class Main {
 			System.out.println(user);
 			System.out.println(cpu);
 			System.out.println("----------");
-			
-			try {
-				Thread.sleep(4000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			cpu.sleep(2);
 		}
 		
 		if(user.getDead()) {
-			System.out.println("CPU wins! Better luck next time.");
+			System.out.println(cpu.getName() + " wins! Better luck next time.");
 		}else if(cpu.getDead()) {
 			System.out.println(user.getName() + " wins!");
 		}
 		
 		System.out.println("Thanks for playing!");
 	}
-	
-
 }
