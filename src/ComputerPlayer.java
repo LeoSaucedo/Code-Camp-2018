@@ -96,7 +96,7 @@ public class ComputerPlayer {
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {//Overriding toString
-		String out = ("The CPU has "+hp+" HP.");
+		String out = (name+" has "+hp+" HP.");
 		return out;
 	}
 }
