@@ -7,9 +7,21 @@ public class ComputerPlayer {
 	private int hp;
 	private int attackPower;
 	private boolean isDead;
+	private String name;
 	Random rand = new Random();//Random number generator.
 	public ComputerPlayer(int difficulty) {
 		//Constructor
+		//Create and fill an ArrayList of possible names.
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("Jarvis");
+		names.add("Eve");
+		names.add("Turing");
+				
+		//Randomly select a name from the list and assign it to the bot.
+		int nameIndex = rand.nextInt(names.size() - 1);
+		name = names.get(nameIndex);
+		
+		//Difficulty selection.
 		if(difficulty == 1) {
 			attackPower = 10;
 			hp = 10;
@@ -76,15 +88,6 @@ public class ComputerPlayer {
 	 * @return the name of the CPU.
 	 */
 	public String getName() {
-		//Create and fill an ArrayList of possible names.
-		ArrayList<String> names = new ArrayList<String>();
-		names.add("Jarvis");
-		names.add("Eve");
-		names.add("Turing");
-		
-		//Randomly select a name from the list and assign it to the bot.
-		int nameIndex = rand.nextInt(names.size() - 1);
-		String name = names.get(nameIndex);
 		return name;
 	}
 	
